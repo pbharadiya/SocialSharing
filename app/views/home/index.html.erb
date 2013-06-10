@@ -1,0 +1,43 @@
+<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+
+<h1>Home#index</h1>
+---------------------------------------------------------------------------------------------------------
+<p>Let's Like</p>
+
+<div class="fb-like" data-href="http://www.facebook.com/wildfire.app.1" data-send="false" data-width="500" data-show-faces="true" data-font="verdana"></div>
+
+<p><%= link_to 'Share on Facebook', "#", :class => "share" %></p>
+
+<!--page/person's name to whom follow-->
+<% url ="zuck" %>
+<div class="fb-follow" data-href="https://www.facebook.com/<%= url %>" data-show-faces="true" data-width="450"></div></br>
+---------------------------------------------------------------------------------------------------------
+<p>Let's Tweet</p>
+<p><%= link_to 'Tweet', "https://twitter.com/share", :class => "twitter-share-button" %></p>
+
+<p><%= link_to "Follow @wildfireapp", "https://twitter.com/wildfireapp", :class => "twitter-follow-button", "data-show-count" => "true", "data-size" => "large" %></p>
+
+<p><%= link_to 'Tweet #WildfirebyGoogle', "https://twitter.com/intent/tweet?button_hashtag=WildfirebyGoogle", :class => "twitter-hashtag-button", "data-size" => "large" %></p>
+
+<p><%= link_to "Tweet to @wildfireapp", "https://twitter.com/intent/tweet?screen_name=wildfireapp", :class => "twitter-mention-button", "data-size" => "large" %></p>
+---------------------------------------------------------------------------------------------------------
+
+<%= javascript_tag do %>
+$(function(){
+  $('.share').click(function(){
+    var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
+    window.open(sharer + location.href, 'sharer', 'width=626,height=436');
+  });
+});
+<% end %>
